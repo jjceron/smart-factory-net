@@ -1,0 +1,39 @@
+========================================================================================================================
+OD Pair                                                   Dijkstra                             A*    Match
+------------------------------------------------------------------------------------------------------------------------
+R01 -> F16 (Full product flow)               d=120.0 e=15 t=0.08ms           d=120.0 e=9 t=0.06ms      YES
+P04 -> Q11 (Cutting to inspection)             d=70.0 e=9 t=0.02ms            d=70.0 e=7 t=0.03ms      YES
+P06 -> P08 (Machining to assembly)             d=46.0 e=5 t=0.01ms            d=46.0 e=4 t=0.01ms      YES
+Q12 -> P05 (Rework to machining)               d=34.0 e=3 t=0.01ms            d=34.0 e=2 t=0.01ms      YES
+R03 -> P04 (Warehouse to production)            d=34.0 e=2 t=0.00ms            d=34.0 e=2 t=0.01ms      YES
+========================================================================================================================
+
+OD: R01 -> F16 (Full product flow)
+  Dijkstra path: R01 -> R02 -> P04 -> P10 -> F14 -> F16
+  A* path:       R01 -> R02 -> P04 -> P10 -> F14 -> F16
+  Dijkstra: dist=120.00  expanded=15  time=0.0763ms
+  A*:       dist=120.00  expanded=9  time=0.0645ms
+
+OD: P04 -> Q11 (Cutting to inspection)
+  Dijkstra path: P04 -> P05 -> P07 -> P08 -> Q11
+  A* path:       P04 -> P05 -> P07 -> P08 -> Q11
+  Dijkstra: dist=70.00  expanded=9  time=0.0230ms
+  A*:       dist=70.00  expanded=7  time=0.0271ms
+
+OD: P06 -> P08 (Machining to assembly)
+  Dijkstra path: P06 -> P07 -> P08
+  A* path:       P06 -> P07 -> P08
+  Dijkstra: dist=46.00  expanded=5  time=0.0110ms
+  A*:       dist=46.00  expanded=4  time=0.0141ms
+
+OD: Q12 -> P05 (Rework to machining)
+  Dijkstra path: Q12 -> P05
+  A* path:       Q12 -> P05
+  Dijkstra: dist=34.00  expanded=3  time=0.0065ms
+  A*:       dist=34.00  expanded=2  time=0.0087ms
+
+OD: R03 -> P04 (Warehouse to production)
+  Dijkstra path: R03 -> P04
+  A* path:       R03 -> P04
+  Dijkstra: dist=34.00  expanded=2  time=0.0034ms
+  A*:       dist=34.00  expanded=2  time=0.0076ms

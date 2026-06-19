@@ -1,0 +1,409 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "name": "Receiving Dock",
+      "zone": 0,
+      "zone_name": "Raw Materials",
+      "pos": [
+        10.0,
+        10.0
+      ],
+      "id": "R01"
+    },
+    {
+      "name": "Raw Storage",
+      "zone": 0,
+      "zone_name": "Raw Materials",
+      "pos": [
+        5.0,
+        25.0
+      ],
+      "id": "R02"
+    },
+    {
+      "name": "Warehouse",
+      "zone": 0,
+      "zone_name": "Raw Materials",
+      "pos": [
+        5.0,
+        40.0
+      ],
+      "id": "R03"
+    },
+    {
+      "name": "Cutting",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        20.0,
+        10.0
+      ],
+      "id": "P04"
+    },
+    {
+      "name": "Machining-1",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        20.0,
+        25.0
+      ],
+      "id": "P05"
+    },
+    {
+      "name": "Machining-2",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        20.0,
+        40.0
+      ],
+      "id": "P06"
+    },
+    {
+      "name": "Sub-Assembly",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        35.0,
+        15.0
+      ],
+      "id": "P07"
+    },
+    {
+      "name": "Assembly-1",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        35.0,
+        30.0
+      ],
+      "id": "P08"
+    },
+    {
+      "name": "Assembly-2",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        35.0,
+        45.0
+      ],
+      "id": "P09"
+    },
+    {
+      "name": "Heat Treatment",
+      "zone": 1,
+      "zone_name": "Production",
+      "pos": [
+        50.0,
+        10.0
+      ],
+      "id": "P10"
+    },
+    {
+      "name": "Inspection",
+      "zone": 2,
+      "zone_name": "Quality",
+      "pos": [
+        50.0,
+        25.0
+      ],
+      "id": "Q11"
+    },
+    {
+      "name": "Rework",
+      "zone": 2,
+      "zone_name": "Quality",
+      "pos": [
+        50.0,
+        40.0
+      ],
+      "id": "Q12"
+    },
+    {
+      "name": "Testing Lab",
+      "zone": 2,
+      "zone_name": "Quality",
+      "pos": [
+        65.0,
+        20.0
+      ],
+      "id": "Q13"
+    },
+    {
+      "name": "Packaging",
+      "zone": 3,
+      "zone_name": "Finished Goods",
+      "pos": [
+        65.0,
+        35.0
+      ],
+      "id": "F14"
+    },
+    {
+      "name": "FG Storage",
+      "zone": 3,
+      "zone_name": "Finished Goods",
+      "pos": [
+        80.0,
+        25.0
+      ],
+      "id": "F15"
+    },
+    {
+      "name": "Shipping",
+      "zone": 3,
+      "zone_name": "Finished Goods",
+      "pos": [
+        80.0,
+        40.0
+      ],
+      "id": "F16"
+    }
+  ],
+  "edges": [
+    {
+      "length": 18,
+      "capacity": 45,
+      "flow": 30,
+      "cost": 1800,
+      "source": "R01",
+      "target": "R02"
+    },
+    {
+      "length": 32,
+      "capacity": 50,
+      "flow": 35,
+      "cost": 2600,
+      "source": "R01",
+      "target": "R03"
+    },
+    {
+      "length": 16,
+      "capacity": 35,
+      "flow": 25,
+      "cost": 1500,
+      "source": "R02",
+      "target": "R03"
+    },
+    {
+      "length": 22,
+      "capacity": 55,
+      "flow": 38,
+      "cost": 2200,
+      "source": "R02",
+      "target": "P04"
+    },
+    {
+      "length": 34,
+      "capacity": 60,
+      "flow": 42,
+      "cost": 2900,
+      "source": "R03",
+      "target": "P04"
+    },
+    {
+      "length": 48,
+      "capacity": 30,
+      "flow": 15,
+      "cost": 3000,
+      "source": "R03",
+      "target": "Q11"
+    },
+    {
+      "length": 16,
+      "capacity": 50,
+      "flow": 40,
+      "cost": 1800,
+      "source": "P04",
+      "target": "P05"
+    },
+    {
+      "length": 32,
+      "capacity": 45,
+      "flow": 35,
+      "cost": 2500,
+      "source": "P04",
+      "target": "P06"
+    },
+    {
+      "length": 32,
+      "capacity": 35,
+      "flow": 20,
+      "cost": 2300,
+      "source": "P04",
+      "target": "P10"
+    },
+    {
+      "length": 16,
+      "capacity": 40,
+      "flow": 30,
+      "cost": 1600,
+      "source": "P05",
+      "target": "P06"
+    },
+    {
+      "length": 20,
+      "capacity": 55,
+      "flow": 40,
+      "cost": 2100,
+      "source": "P05",
+      "target": "P07"
+    },
+    {
+      "length": 30,
+      "capacity": 50,
+      "flow": 35,
+      "cost": 2500,
+      "source": "P06",
+      "target": "P07"
+    },
+    {
+      "length": 18,
+      "capacity": 45,
+      "flow": 30,
+      "cost": 1800,
+      "source": "P06",
+      "target": "P09"
+    },
+    {
+      "length": 16,
+      "capacity": 60,
+      "flow": 48,
+      "cost": 2000,
+      "source": "P07",
+      "target": "P08"
+    },
+    {
+      "length": 16,
+      "capacity": 55,
+      "flow": 42,
+      "cost": 1900,
+      "source": "P08",
+      "target": "P09"
+    },
+    {
+      "length": 18,
+      "capacity": 50,
+      "flow": 38,
+      "cost": 1900,
+      "source": "P08",
+      "target": "Q11"
+    },
+    {
+      "length": 26,
+      "capacity": 50,
+      "flow": 40,
+      "cost": 2300,
+      "source": "P09",
+      "target": "Q11"
+    },
+    {
+      "length": 18,
+      "capacity": 40,
+      "flow": 25,
+      "cost": 1700,
+      "source": "P10",
+      "target": "P07"
+    },
+    {
+      "length": 30,
+      "capacity": 30,
+      "flow": 15,
+      "cost": 2100,
+      "source": "P10",
+      "target": "F14"
+    },
+    {
+      "length": 16,
+      "capacity": 45,
+      "flow": 30,
+      "cost": 1700,
+      "source": "Q11",
+      "target": "Q12"
+    },
+    {
+      "length": 18,
+      "capacity": 40,
+      "flow": 28,
+      "cost": 1700,
+      "source": "Q11",
+      "target": "Q13"
+    },
+    {
+      "length": 26,
+      "capacity": 35,
+      "flow": 22,
+      "cost": 2000,
+      "source": "Q12",
+      "target": "Q13"
+    },
+    {
+      "length": 34,
+      "capacity": 30,
+      "flow": 18,
+      "cost": 2300,
+      "source": "Q12",
+      "target": "P05"
+    },
+    {
+      "length": 43,
+      "capacity": 25,
+      "flow": 12,
+      "cost": 2650,
+      "source": "Q12",
+      "target": "P04"
+    },
+    {
+      "length": 16,
+      "capacity": 55,
+      "flow": 45,
+      "cost": 1900,
+      "source": "Q13",
+      "target": "F14"
+    },
+    {
+      "length": 50,
+      "capacity": 25,
+      "flow": 10,
+      "cost": 3000,
+      "source": "Q13",
+      "target": "P06"
+    },
+    {
+      "length": 20,
+      "capacity": 50,
+      "flow": 40,
+      "cost": 2000,
+      "source": "F14",
+      "target": "F15"
+    },
+    {
+      "length": 18,
+      "capacity": 55,
+      "flow": 45,
+      "cost": 2000,
+      "source": "F14",
+      "target": "F16"
+    },
+    {
+      "length": 16,
+      "capacity": 50,
+      "flow": 42,
+      "cost": 1800,
+      "source": "F15",
+      "target": "F16"
+    },
+    {
+      "length": 78,
+      "capacity": 40,
+      "flow": 20,
+      "cost": 4700,
+      "source": "F16",
+      "target": "R01"
+    }
+  ]
+}

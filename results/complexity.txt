@@ -1,0 +1,27 @@
+==========================================================================================
+COMPUTATIONAL COMPLEXITY ANALYSIS
+==========================================================================================
+     |V|      |E|    Algorithm    Time (ms)   Expanded     Distance
+------------------------------------------------------------------------------------------
+      20       40     Dijkstra       0.0632         16       179.00
+      20       40           A*       0.0533         13       179.00
+      40       80     Dijkstra       0.0741          7       138.00
+      40       80           A*       0.0298          5       138.00
+      80      160     Dijkstra       0.2031         72       401.00
+      80      160           A*       0.2226         69       401.00
+     160      320     Dijkstra       0.2403         81       328.00
+     160      320           A*       0.1759         42       328.00
+     320      640     Dijkstra       0.1877         38       312.00
+     320      640           A*       0.1393         25       312.00
+
+--- Complexity Class Verification ---
+Dijkstra: O((|V|+|E|) log |V|)
+A*:       O(b^d) worst-case, but heuristic reduces expansion in practice
+
+--- Ratio Analysis ---
+  |V|=  20: A*/Dijkstra expanded ratio = 0.812
+  |V|=  40: A*/Dijkstra expanded ratio = 0.714
+  |V|=  80: A*/Dijkstra expanded ratio = 0.958
+  |V|= 160: A*/Dijkstra expanded ratio = 0.519
+  |V|= 320: A*/Dijkstra expanded ratio = 0.658
+==========================================================================================
