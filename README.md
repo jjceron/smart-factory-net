@@ -38,8 +38,3 @@ python -m pytest tests/ -v
 ```
 
 Output directories: `data/` (network JSON), `results/` (tables), `figures/` (8 PNG charts).
-
-## Author
-
-Cerón Ordoñez, J. J., M.Sc (c) in Electrical Engineering
-AI Assistant: DeepSeek V4 Flash
