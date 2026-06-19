@@ -29,7 +29,16 @@ from src.complexity_analysis import run_complexity_analysis, print_complexity_re
 from src.newton_raphson import edges_from_graph, compute_edge_velocities, print_velocity_results
 from src.optimization_model import prepare_edge_data, solve_optimization, print_optimization_results
 from src.sensitivity_analysis import run_sensitivity, print_sensitivity_results
-from src.visualization import plot_network, plot_complexity, plot_sensitivity
+from src.visualization import (
+    plot_network,
+    plot_complexity_time,
+    plot_complexity_nodes,
+    plot_sensitivity,
+    plot_dijkstra_astar_comparison,
+    plot_velocity_vs_utilization,
+    plot_optimization_selection,
+    plot_marginal_benefit,
+)
 
 RESULTS_DIR = PROJECT_ROOT / "results"
 
@@ -75,8 +84,9 @@ def main():
     print(complexity_text)
     save_text("complexity.txt", complexity_text)
     complexity_df.to_csv(RESULTS_DIR / "complexity.csv", index=False)
-    plot_complexity(complexity_df)
-    print("      Figure saved to: figures/complexity_scaling.png")
+    plot_complexity_time(complexity_df)
+    plot_complexity_nodes(complexity_df)
+    print("      Figures saved to: figures/complexity_time.png, complexity_nodes.png")
 
     # 5. Newton-Raphson velocity estimation
     print("\n[5/8] Estimating conveyor velocities (Newton-Raphson)...")
@@ -85,6 +95,8 @@ def main():
     velocity_text = print_velocity_results(vel_results)
     print(velocity_text)
     save_text("newton_raphson.txt", velocity_text)
+    plot_velocity_vs_utilization()
+    print("      Figure saved to: figures/velocity_vs_utilization.png")
 
     # 6. MILP optimization
     print("\n[6/8] Solving MILP optimization...")
@@ -94,6 +106,8 @@ def main():
     print(opt_text)
     save_text("optimization.txt", opt_text)
     opt_results.to_csv(RESULTS_DIR / "optimization.csv", index=False)
+    plot_optimization_selection(opt_results)
+    print("      Figure saved to: figures/optimization_selection.png")
 
     # 7. Sensitivity analysis
     print("\n[7/8] Running budget sensitivity analysis...")
@@ -103,12 +117,15 @@ def main():
     save_text("sensitivity.txt", sens_text)
     sens_df.to_csv(RESULTS_DIR / "sensitivity.csv", index=False)
     plot_sensitivity(sens_df)
-    print("      Figure saved to: figures/sensitivity.png")
+    plot_marginal_benefit(sens_df)
+    print("      Figures saved to: figures/sensitivity.png, marginal_benefit.png")
 
-    # 8. Network visualization
-    print("\n[8/8] Generating network visualization...")
+    # 8. Network visualization + comparison
+    print("\n[8/8] Generating all figures...")
     plot_network(G)
     print("      Figure saved to: figures/network_base.png")
+    plot_dijkstra_astar_comparison(sp_results)
+    print("      Figure saved to: figures/dijkstra_astar_comparison.png")
 
     # Done
     elapsed = time.perf_counter() - t_start
@@ -119,7 +136,10 @@ def main():
     print(f"  data/     -> {net_path.name}")
     print(f"  results/  -> connectivity.txt, shortest_paths.txt, newton_raphson.txt,")
     print(f"               optimization.txt, sensitivity.txt, complexity.txt (.csv)")
-    print(f"  figures/  -> network_base.png, complexity_scaling.png, sensitivity.png")
+    print(f"  figures/  -> network_base.png, complexity_time.png, complexity_nodes.png,")
+    print(f"               sensitivity.png, marginal_benefit.png,")
+    print(f"               dijkstra_astar_comparison.png, velocity_vs_utilization.png,")
+    print(f"               optimization_selection.png")
 
 
 if __name__ == "__main__":
